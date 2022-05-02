@@ -4,15 +4,15 @@
 - multithreaded
 - no netherrack support
 
-## getting texture rotations
+## Getting texture rotations
 
-### datapack downloads
+### Datapack downloads
 
 to get texture rotations you can install these two recourse packs:\
 [Manual texture rotations](https://cdn.discordapp.com/attachments/766084065795244092/825795329290534923/Manual_texture_rotations.zip) \
 [Textures to numbers](https://cdn.discordapp.com/attachments/766084065795244092/825795334885998602/Textures_to_numbers.zip)
 
-### usage
+### Usage
 Manual texture rotations reskins blocks with block states to blocks with texture rotations. \
 When you change the blockstate via debugstick these blocks will then change their rotation. 
 
@@ -47,7 +47,7 @@ It converts your textures to numbers that the program can use (who could have gu
 ![image couldnt load](https://cdn.discordapp.com/attachments/766084065795244092/825795905457750107/2021-03-28_19.06.53.png)
 
 ## How to input data
-In the TextureFinder class you can find an example on how the input data. \
+In the TextureFinder class you can find an example on how the input data.
 <pre>
 formation.add(new RotationInfo(1, 0, 0, 1, true));
 </pre>
@@ -63,14 +63,14 @@ Bedrock and stone have 2 possible side rotations. (acctually not rotations, the 
 If you only know the side rotation then you need to set this to true. \
 All other blocks only rotate tops and bottoms.  (except netherrack, which I dont support)
 
-##Search parameters
-Configure them in the main class \
+## Search parameters
+Configure them in the main class
 - xMin / xMax: range of the scanned X coords
 - zMin / zMax: range of the scanned Z coords
 - yMin / yMax: range of the scanned Y coords
 - threads: number of threads (between 4 and 16 for average pcs)
 
-##Sodium texture rotations
+## Sodium texture rotations
 go to the run() method in TextureFinder
 
 comment the vanilla part \
