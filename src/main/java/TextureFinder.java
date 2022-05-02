@@ -1,11 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 
 public class TextureFinder extends Thread {
 
-    private static final ArrayList<RotationInfo> formation = new ArrayList<>();
+    public static final ArrayList<RotationInfo> formation = new ArrayList<>();
     private static final List<RotationInfo> topsAndBottoms = new ArrayList<>();
     private static final List<RotationInfo> sides = new ArrayList<>();
 
@@ -69,19 +68,20 @@ public class TextureFinder extends Thread {
     }
 
     public static int getTextureSide(int x, int y, int z) {
-        //inicial scramble
+        //initial scramble
         long seed = getCoordinateRandom(x, y, z);
         seed = (seed ^ multiplier) & mask;
         //nextlong combine 2 and mod 2
-        return (int)((seed * 0xBB20B4600A69L + 0x40942DE6BAL) >>> 16) & 1;
+        return (int)((seed * 0xBB20B4600A69L + 0x40942DE6BAL) >>> 16) & 0b1;
     }
 
     public static int getTextureTop(int x, int y, int z) {
-        //inicial scramble
+        //initial scramble
         long seed = getCoordinateRandom(x, y, z);
         seed = (seed ^ multiplier) & mask;
         //nextlong combine 2 and mod 4
-        return (int)((seed * 0xBB20B4600A69L + 0x40942DE6BAL) >>> 16) & 2;
+        seed = (seed * 0xBB20B4600A69L + 0x40942DE6BAL) >>> 16;
+        return (Math.abs((int) seed) & 0b11);
     }
 
     private static final long PHI = 0x9E3779B97F4A7C15L;
@@ -123,24 +123,21 @@ public class TextureFinder extends Thread {
     public void run() {
         long first=System.currentTimeMillis();
 
-        for(int x = startX; x <= endX; x++)
-            for(int z = Main.zMin; z <= Main.zMax; z++)
+        for(int x = startX; x <= endX; x++) {
+            for (int z = Main.zMin; z <= Main.zMax; z++) {
                 nextAttempt:
-                for(int y = Main.yMin; y <= Main.yMax; y++)
-                {
-                    for(RotationInfo b : topsAndBottoms)
-                    {
+                for (int y = Main.yMin; y <= Main.yMax; y++) {
+                    for (RotationInfo b : topsAndBottoms) {
                         //switch comments for sodium texture rotations
-                        if(b.rotation!=getTextureTop(x + b.x, y+b.y, z+b.z)) {
+                        if (b.rotation != getTextureTop(x + b.x, y + b.y, z + b.z)) {
                             continue nextAttempt;
                         }
                         //if(b.rotation!=getTextureTopSodium(x + b.x, y+b.y, z+b.z)) {
                         //    continue nextAttempt;
                         //}
                     }
-                    for(RotationInfo b : sides)
-                    {
-                        if(b.rotation!=getTextureSide(x + b.x, y+b.y, z+b.z)) {
+                    for (RotationInfo b : sides) {
+                        if (b.rotation != getTextureSide(x + b.x, y + b.y, z + b.z)) {
                             continue nextAttempt;
                         }
                         //if(b.rotation!=getTextureSideSodium(x + b.x, y+b.y, z+b.z)) {
@@ -148,10 +145,10 @@ public class TextureFinder extends Thread {
                         //}
                     }
 
-                    System.out.println("X: "+x+ " Y: "+y+ " Z: "+z);
+                    System.out.println("X: " + x + " Y: " + y + " Z: " + z);
                 }
-
-
+            }
+        }
         System.out.println(((System.currentTimeMillis()-first)/1000) + " seconds");
     }
 }
