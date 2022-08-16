@@ -1,3 +1,6 @@
+import texture.TextureProvider;
+import texture.VanillaTextures;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,68 +59,12 @@ public class TextureFinder extends Thread {
 
     private final int startX;
     private final int endX;
+    private final TextureProvider textureProvider;
 
-    private static final long multiplier = 0x5DEECE66DL;
-    private static final long addend = 0xBL;
-    private static final long mask = (1L << 48) - 1;
-
-
-    TextureFinder(int startX, int endX) {
+    TextureFinder(int startX, int endX, TextureProvider textureProvider) {
         this.startX = startX;
         this.endX = endX;
-    }
-
-    public static int getTextureSide(int x, int y, int z) {
-        //initial scramble
-        long seed = getCoordinateRandom(x, y, z);
-        seed = (seed ^ multiplier) & mask;
-        //nextlong combine 2 and mod 2
-        return (int)((seed * 0xBB20B4600A69L + 0x40942DE6BAL) >>> 16) & 0b1;
-    }
-
-    public static int getTextureTop(int x, int y, int z) {
-        //initial scramble
-        long seed = getCoordinateRandom(x, y, z);
-        seed = (seed ^ multiplier) & mask;
-        //nextlong combine 2 and mod 4
-        seed = (seed * 0xBB20B4600A69L + 0x40942DE6BAL) >>> 16;
-        return (Math.abs((int) seed) & 0b11);
-    }
-
-    private static final long PHI = 0x9E3779B97F4A7C15L;
-
-    public static long getCoordinateRandom(int x, int y, int z) {
-        long l = (long)(x * 3129871) ^ (long)z * 116129781L ^ (long)y;
-        l = l * l * 42317861L + l * 11L;
-        return l >> 16;
-    }
-
-    public static int getTextureTopSodium(int x, int y, int z) {
-        return Math.abs((int)sodiumRandom(getCoordinateRandom(x, y, z))) % 4;
-    }
-
-    public static int getTextureSideSodium(int x, int y, int z) {
-        return Math.abs((int)sodiumRandom(getCoordinateRandom(x, y, z))) % 2;
-    }
-
-    public static long sodiumRandom(long seed) {
-        seed ^= seed >>> 33;
-        seed *= 0xff51afd7ed558ccdL;
-        seed ^= seed >>> 33;
-        seed *= 0xc4ceb9fe1a85ec53L;
-        seed ^= seed >>> 33;
-
-        long rand1 = staffordMix13(seed += PHI);
-        long rand2 = staffordMix13(seed + PHI);
-
-        return rand1+rand2;
-    }
-
-    private static long staffordMix13(long z) {
-        z = (z ^ (z >>> 30)) * 0xBF58476D1CE4E5B9L;
-        z = (z ^ (z >>> 27)) * 0x94D049BB133111EBL;
-
-        return z ^ (z >>> 31);
+        this.textureProvider = textureProvider;
     }
 
     public void run() {
@@ -128,21 +75,14 @@ public class TextureFinder extends Thread {
                 nextAttempt:
                 for (int y = Main.yMin; y <= Main.yMax; y++) {
                     for (RotationInfo b : topsAndBottoms) {
-                        //switch comments for sodium texture rotations
-                        if (b.rotation != getTextureTop(x + b.x, y + b.y, z + b.z)) {
+                        if(b.rotation != textureProvider.getTexture(x + b.x, y+b.y, z+b.z, 4)) {
                             continue nextAttempt;
                         }
-                        //if(b.rotation!=getTextureTopSodium(x + b.x, y+b.y, z+b.z)) {
-                        //    continue nextAttempt;
-                        //}
                     }
                     for (RotationInfo b : sides) {
-                        if (b.rotation != getTextureSide(x + b.x, y + b.y, z + b.z)) {
+                        if(b.rotation != textureProvider.getTexture(x + b.x, y+b.y, z+b.z, 2)) {
                             continue nextAttempt;
                         }
-                        //if(b.rotation!=getTextureSideSodium(x + b.x, y+b.y, z+b.z)) {
-                        //    continue nextAttempt;
-                        //}
                     }
 
                     System.out.println("X: " + x + " Y: " + y + " Z: " + z);

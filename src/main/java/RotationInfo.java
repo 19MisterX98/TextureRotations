@@ -6,8 +6,6 @@ public class RotationInfo {
     public final int rotation;
     public final boolean isSide;
 
-
-
     RotationInfo(int x, int y, int z, int rotation, boolean isSide) {
         this.x = x;
         this.y = y;

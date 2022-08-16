@@ -69,12 +69,8 @@ Configure them in the main class
 - zMin / zMax: range of the scanned Z coords
 - yMin / yMax: range of the scanned Y coords
 - threads: number of threads (between 4 and 16 for average pcs)
+- mode: change between VanillaTextures/SodiumTextures/Sodium19Textures
 
-## Sodium texture rotations
-go to the run() method in TextureFinder
-
-comment the vanilla part \
-uncomment the sodium part
 
 
 
