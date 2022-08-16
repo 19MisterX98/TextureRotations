@@ -1,5 +1,7 @@
 import texture.TextureProvider;
 import texture.VanillaTextures;
+import texture.SodiumTextures;
+import texture.Sodium19Textures;
 
 public class Main {
 
@@ -8,6 +10,8 @@ public class Main {
     public static final int yMin = 10    , yMax = 60;
     public static final int threads = 10;
     public static final TextureProvider mode = new VanillaTextures();
+    //                                         new SodiumTextures();
+    //                                         new Sodium19Textures();
 
     //goto TextureFinder class to configure rotations
 
