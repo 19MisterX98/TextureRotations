@@ -71,6 +71,14 @@ Configure them in the main class
 - threads: number of threads (between 4 and 16 for average pcs)
 - mode: change between VanillaTextures/SodiumTextures/Sodium19Textures
 
+Sodium changed its random number generator a bunch of times so here is a table :)
+
+| Sodium Version | MC Version  | Mode             |
+|----------------|-------------|------------------|
+| 1.0-4.1        | 1.16-1.18.2 | SodiumTextures   |
+| 4.2-4.8        | 1.19-1.19.3 | Sodium19Textures |
+| 4.9+           | 1.19.3+     | VanillaTextures  |
+
 
 
 
