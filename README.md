@@ -9,8 +9,8 @@
 ### Datapack downloads
 
 to get texture rotations you can install these two recourse packs:\
-[Manual texture rotations](https://cdn.discordapp.com/attachments/766084065795244092/825795329290534923/Manual_texture_rotations.zip) \
-[Textures to numbers](https://cdn.discordapp.com/attachments/766084065795244092/825795334885998602/Textures_to_numbers.zip)
+[Manual texture rotations](https://github.com/19MisterX98/TextureRotations/releases/download/1/Manual_texture_rotations.zip) \
+[Textures to numbers](https://github.com/19MisterX98/TextureRotations/releases/download/1/Textures_to_numbers.zip)
 
 ### Usage
 Manual texture rotations reskins blocks with block states to blocks with texture rotations. \
