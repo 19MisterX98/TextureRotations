@@ -32,9 +32,9 @@ Podzol:         Cyan glazed terracotta orientation
 Lily pad:       Iron trapdoor orientation
 </pre>
 #### before the manual texture rotation resource pack:
-![image couldnt load](no_pack.png)
+![image couldnt load](screenshots/no_pack.png)
 #### after the manual texture rotation resource pack:
-![image couldnt load](manual_rotation_pack.png)
+![image couldnt load](screenshots/manual_rotation_pack.png)
 Just rotate the blocks in your recreation as they are in the footage of your "vicitm" \
 Pay attention that you got the direction of your recreation right. This tool doesnt support rotating cause im lazy. \
 An easy way to get the direction is looking at the texture of blocks that dont have texture rotations.
@@ -44,7 +44,7 @@ An easy way to get the direction is looking at the texture of blocks that dont h
 Now you can overlay the textures to numbers resource pack. \
 It converts your textures to numbers that the program can use (who could have guessed)
 #### after the textures to numbers resource pack:
-![image couldnt load](textures_to_numbers_pack.png)
+![image couldnt load](screenshots/textures_to_numbers_pack.png)
 
 ## How to input data
 In the TextureFinder class you can find an example on how the input data.
@@ -69,7 +69,7 @@ Configure them in the main class
 - zMin / zMax: range of the scanned Z coords
 - yMin / yMax: range of the scanned Y coords
 - threads: number of threads (between 4 and 16 for average pcs)
-- mode: change between VanillaTextures/SodiumTextures/Sodium19Textures
+- mode: change between VanillaTextures/Vanilla12Textures/SodiumTextures/Sodium19Textures
 
 Sodium changed its random number generator a bunch of times so here is a table :)
 

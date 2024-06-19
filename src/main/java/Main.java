@@ -2,6 +2,7 @@ import texture.TextureProvider;
 import texture.VanillaTextures;
 import texture.SodiumTextures;
 import texture.Sodium19Textures;
+import texture.Vanilla12Textures;
 
 public class Main {
 
@@ -12,9 +13,9 @@ public class Main {
     public static final TextureProvider mode = new VanillaTextures();
     //                                         new SodiumTextures();
     //                                         new Sodium19Textures();
+    //                                         new Vanilla12Textures();
 
     //goto TextureFinder class to configure rotations
-
     public static void main(String[] args) {
 
         int xtotal = xMax - xMin;
