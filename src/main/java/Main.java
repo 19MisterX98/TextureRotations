@@ -3,6 +3,7 @@ import texture.VanillaTextures;
 import texture.SodiumTextures;
 import texture.Sodium19Textures;
 import texture.Vanilla12Textures;
+import texture.Vanilla21_1Textures;
 
 public class Main {
 
@@ -10,10 +11,11 @@ public class Main {
     public static final int zMin = -10000, zMax = 10000;
     public static final int yMin = 10    , yMax = 60;
     public static final int threads = 10;
-    public static final TextureProvider mode = new VanillaTextures();
+    public static final TextureProvider mode = new Vanilla21_1Textures();
     //                                         new SodiumTextures();
     //                                         new Sodium19Textures();
     //                                         new Vanilla12Textures();
+    //                                         new VanillaTextures();
 
     //goto TextureFinder class to configure rotations
     public static void main(String[] args) {

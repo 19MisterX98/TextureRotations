@@ -1,6 +1,6 @@
 package texture;
 
-public class Sodium19Textures extends VanillaTextures {
+public class Sodium19Textures extends Vanilla21_1Textures {
 
     protected static long staffordMix13(long z) {
         z = (z ^ (z >>> 30)) * 0xBF58476D1CE4E5B9L;

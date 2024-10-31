@@ -1,5 +1,4 @@
 import texture.TextureProvider;
-import texture.VanillaTextures;
 
 import java.util.ArrayList;
 import java.util.List;

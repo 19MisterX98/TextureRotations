@@ -1,6 +1,5 @@
 # Texture Rotation Reverser Java
 - for vanilla and sodium texture rotations.
-- only works on 1.13+
 - multithreaded
 - no netherrack support
 
@@ -71,13 +70,21 @@ Configure them in the main class
 - threads: number of threads (between 4 and 16 for average pcs)
 - mode: change between VanillaTextures/Vanilla12Textures/SodiumTextures/Sodium19Textures
 
-Sodium changed its random number generator a bunch of times so here is a table :)
+Minecraft changed its random number generator a bunch of times so here is a table :)
 
-| Sodium Version | MC Version  | Mode             |
-|----------------|-------------|------------------|
-| 1.0-4.1        | 1.16-1.18.2 | SodiumTextures   |
-| 4.2-4.8        | 1.19-1.19.3 | Sodium19Textures |
-| 4.9+           | 1.19.3+     | VanillaTextures  |
+| MC Version  | Mode                |
+|-------------|---------------------|
+| \>=1.12.2   | Vanilla12Textures   |
+| 1.13-1.21.1 | Vanilla21_1Textures |
+| 1.21.2+     | VanillaTextures     |
+
+Sodium did it too :)
+
+| Sodium Version | MC Version  | Mode                       |
+|----------------|-------------|----------------------------|
+| 1.0-4.1        | 1.16-1.18.2 | SodiumTextures             |
+| 4.2-4.8        | 1.19-1.19.3 | Sodium19Textures           |
+| 4.9+           | 1.19.3+     | Uses the MC implementation |
 
 
 
