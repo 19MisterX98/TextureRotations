@@ -68,7 +68,7 @@ Configure them in the main class
 - zMin / zMax: range of the scanned Z coords
 - yMin / yMax: range of the scanned Y coords
 - threads: number of threads (between 4 and 16 for average pcs)
-- mode: change between VanillaTextures/Vanilla12Textures/SodiumTextures/Sodium19Textures
+- mode: change between VanillaTextures/Vanilla21_1Textures/Vanilla12Textures/SodiumTextures/Sodium19Textures
 
 Minecraft changed its random number generator a bunch of times so here is a table :)
 
