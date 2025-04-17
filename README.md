@@ -74,7 +74,7 @@ Minecraft changed its random number generator a bunch of times so here is a tabl
 
 | MC Version  | Mode                |
 |-------------|---------------------|
-| \>=1.12.2   | Vanilla12Textures   |
+| <=1.12.2    | Vanilla12Textures   |
 | 1.13-1.21.1 | Vanilla21_1Textures |
 | 1.21.2+     | VanillaTextures     |
 
