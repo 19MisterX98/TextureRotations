@@ -9,6 +9,7 @@ public class VanillaTextures implements TextureProvider {
         // nextInt(mod)
         seed = seed * multiplier + 11L & mask;
         int next = (int)(seed >> 48 - 31);
-        return (int) ((mod * (long)next) >> 31);
+        // assumes that there are always 4 variants for a block
+        return (int) ((4 * (long)next) >> 31) % mod;
     }
 }
